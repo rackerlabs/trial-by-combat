@@ -1,0 +1,67 @@
+##################################################
+#        trial-by-combat configuration           #
+##################################################
+
+benchmark: sysbench
+interface:
+    id: MySQL
+    data:
+        url: insert-url-here
+        port: 3306
+        user: insert-database-user-here
+        password: insert-database-password-here
+        database: insert-database-name-here
+        debug_queries: False
+        debug_responses: False
+processes_per_node: 8
+duration: 20
+
+nodes:
+    - host: insert-url-here
+      port: 9999
+    - host: insert-url-here
+      port: 9999
+
+log_framerate: 1.0
+log_latency_bin_size: 0.0001
+log_dead_frames: 5
+
+load_processes_per_node: 1
+load_nodes: 1
+
+history:
+    benchmark_id: sysbench_default
+    interface_id: MySQL
+    interface_data:
+        url: insert-database-url-here
+        port: 3306
+        user: insert-database-name-here
+        password: insert-database-password-here
+        database: insert-database-name-here
+        debug_queries: False
+        debug_responses: False
+
+##################################################
+#       benchmark specific configuration         #
+##################################################
+
+table_size: 10000
+
+range_size: 100
+
+point_operations: 10
+range_operations: 1
+range_sum_operations: 1
+range_order_operations: 1
+range_distinct_operations: 1
+update_index_operations: 1
+update_non_index_operations: 1
+delete_operations: 1
+
+# currently implemented: special and uniform
+distribution: special
+
+# configuration for the default sysbench distribution 'special'
+# this distribution, if you ask me, is really stupid
+chance_to_be_special: 0.01
+special_chosen_percentage: 0.75

@@ -1,0 +1,61 @@
+##################################################
+#        trial-by-combat configuration           #
+##################################################
+
+benchmark: RandomTransactions
+interface:
+    id: MySQL
+    data:
+        url: insert-url-here
+        port: 3306
+        user: insert-database-user-here
+        password: insert-database-password-here
+        database: insert-database-name-here
+        debug_queries: False
+        debug_responses: False
+processes_per_node: 8
+duration: 20
+
+nodes:
+    - host: insert-url-here
+      port: 9999
+    - host: insert-url-here
+      port: 9999
+
+log_framerate: 1.0
+log_latency_bin_size: 0.01
+log_dead_frames: 5
+
+load_processes_per_node: 1
+load_nodes: 2
+
+history:
+    benchmark_id: randomtransactions_default
+    interface_id: MySQL
+    interface_data:
+        url: insert-url-here
+        port: 3306
+        user: insert-database-user-here
+        password: insert-database-password-here
+        database: insert-database-name-here
+        debug_queries: False
+        debug_responses: False
+
+##################################################
+#       benchmark specific configuration         #
+##################################################
+
+table_size: 5000000
+a_max: 10000
+
+# the probability of starting txn1
+txn1: 100
+# the probability that txn1 will end
+txn1_end: 10
+txn1_continue: 90
+# what happens when txn1 ends
+txn1_commit: 99
+txn1_abort: 1
+# what types of operations does txn1 perform
+txn1_read: 90
+txn1_write: 10

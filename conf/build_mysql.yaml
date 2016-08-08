@@ -1,0 +1,22 @@
+# used by TBC/Rackspace/InstanceBuilder.py
+
+##################################################
+#            database configuration              #
+##################################################
+
+database_build_data:
+    - build_type: mysql
+      version: '5.6'
+      flavor: '2'
+      size: 5
+      name: mysql_benchmark_db
+      database_name: benchmark
+      user: benchmark
+      password: guest
+      configuration: insert-configuration  # optional
+      interface_id: MySQL
+      auxilary_interface_data:                       # used to generate the interface yaml automatically
+          port: 3306
+          debug_queries: False
+          debug_responses: False
+      outfile: mysql_db.yaml

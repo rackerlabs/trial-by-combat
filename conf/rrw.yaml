@@ -1,0 +1,27 @@
+# used by trial-by-combat --master
+
+##################################################
+#        trial-by-combat configuration           #
+##################################################
+
+benchmark: RandomRW
+processes_per_node: 8
+duration: 20
+
+log_framerate: 10
+log_latency_bin_size: 0.0005
+log_dead_frames: 50
+
+load_processes_per_node: 1
+load_nodes: 2
+
+##################################################
+#       benchmark specific configuration         #
+##################################################
+
+# how many keys to load when setting up the benchmark
+keys: 1000000
+
+# the read/write ratio
+read: 90
+write: 10

@@ -1,0 +1,4 @@
+trial-by-combat is a benchmarking utility originally designed to be used
+in a CI environment.
+
+See the docs/ directory for more information (including installation instructions).

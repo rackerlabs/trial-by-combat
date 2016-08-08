@@ -1,0 +1,13 @@
+# used by trial-by-combat --master
+
+history:
+    benchmark_id: sysbench
+    interface_id: MySQL
+    interface_data:
+        url: insert-database-url
+        port: 3306
+        user: insert-database-user
+        password: insert-database-password
+        database: insert-database-name
+        debug_queries: True
+        debug_responses: False

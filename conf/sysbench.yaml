@@ -1,0 +1,41 @@
+# used by trial-by-combat --master
+
+##################################################
+#        trial-by-combat configuration           #
+##################################################
+
+benchmark: sysbench
+processes_per_node: 4
+duration: 40
+
+log_framerate: 10
+log_latency_bin_size: 0.0001
+log_dead_frames: 100
+
+load_processes_per_node: 4
+load_nodes: 1
+
+##################################################
+#       benchmark specific configuration         #
+##################################################
+
+table_size: 1000000
+
+range_size: 100
+
+point_operations: 10
+range_operations: 1
+range_sum_operations: 1
+range_order_operations: 1
+range_distinct_operations: 1
+update_index_operations: 1
+update_non_index_operations: 1
+delete_operations: 1
+
+# currently implemented: special and uniform
+distribution: special
+
+# configuration for the default sysbench distribution 'special'
+# this distribution, if you ask me, is really stupid
+chance_to_be_special: 0.01
+special_chosen_percentage: 0.75

@@ -1,0 +1,15 @@
+# used by TBC/Rackspace/InstanceBuilder.py
+
+##################################################
+#        virtual machine configuraiton           #
+##################################################
+
+vm_build_data:
+    config:
+        image: insert-image
+        flavor: 4
+        base_name: benchmark-                        # will create benchmark-0, benchmark-1, etc
+    how_many: 1
+    source_dir: ~/trial-by-combat                    # this will be copied over to the nodes
+    master_ip: insert-master-IP                      # needed to open doorways in firewalls
+    outfile: nodes.yaml

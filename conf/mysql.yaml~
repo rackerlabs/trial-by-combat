@@ -1,0 +1,9 @@
+interface:
+    id: MySQL
+    data:
+        url: url_to_mysql_instance.rackspaceclouddb.com
+        port: 3306
+        user: benchmark
+        password: guest
+        database: benchmark
+        debug: False

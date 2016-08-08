@@ -1,0 +1,19 @@
+# used by TBC/Rackspace/InstanceBuilder.py
+
+##################################################
+#            database configuration              #
+##################################################
+
+database_build_data:
+    - build_type: redis
+      version: '3.0.7'
+      flavor: '102'
+      name: redis_benchmark_db
+      database_name: benchmark
+      interface_id: redis
+      auxilary_interface_data:                       # used to generate the interface yaml automatically
+          port: 6379
+          client: StrictRedis
+          database: 0
+          debug: False
+      outfile: redis_db.yaml

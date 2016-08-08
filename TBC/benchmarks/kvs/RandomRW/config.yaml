@@ -1,0 +1,52 @@
+##################################################
+#        trial-by-combat configuration           #
+##################################################
+
+benchmark: RandomRW
+interface:
+    id: redis
+    data:
+        url: insert-url-here
+        port: 6379
+        database: 0
+        password: insert-password-here
+        client: StrictRedis
+        debug: False
+processes_per_node: 8
+duration: 20
+
+nodes:
+    - host: inesrt-IP-here
+      port: 9999
+    - host: insert-IP-here
+      port: 9998
+
+log_framerate: 10
+log_latency_bin_size: 0.0005
+log_dead_frames: 50
+
+load_processes_per_node: 1
+load_nodes: 2
+
+history:
+    benchmark_id: randomrw_default
+    interface_id: MySQL
+    interface_data:
+        url: insert-url-here
+        port: 3306
+        user: insert-database-user-here
+        password: insert-password-here
+        database: insert-database-name-here
+        debug_queries: False
+        debug_responses: False
+
+##################################################
+#       benchmark specific configuration         #
+##################################################
+
+# how many keys to load when setting up the benchmark
+keys: 1000000
+
+# the read/write ratio
+read: 90
+write: 10
